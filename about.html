@@ -7,31 +7,56 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">Sarah Macintosh Design</a>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="CV.pdf">Resume</a></li>
-            </ul>
-        </div>
-    </nav>
+
+    <!-- Navbar will be injected here -->
+    <div id="nav-placeholder"></div>
 
     <main class="container">
-        <section class="content">
+        <section class="text-left-image-right">
             <h1>Hey, I'm Sarah!</h1>
-            
-            <img src=".../assets/sarah-whiteshirt-headshot.jpg" alt="Sarah's profile photo">
-            <p class="sub-header">I'm a product designer with a passion for socially and environmentally conscious projects. I've worked at a wide range of organizations where I've gained experience in user experience design, research, project management and front end development.</p>
-            <p>I'm passionate about using a user-centred, data driven approach to design digital and physical products with flawless user experience and a positive environmental impact. My diverse experience means I have the background to create designs that are simple for developers to implement while serving users effectively.</p>
-            <p>In my spare time you'll find me hiking, mountain biking, climbing or skiing. When I'm not being active I enjoy photography, travelling with friends and taking care of my jungle of house plants.</p>
+
+            <div>
+                <img src="/assets/blob-headshot.png" width="300" alt="Sarah's profile photo">
+                <p class="sub-header">
+                    I'm a product designer with a passion for socially and environmentally conscious projects. I've worked at a wide range of organizations where I've gained experience in user experience design, research, project management and front end development. I'm passionate about using a user-centred, data driven approach to design digital and physical products with flawless user experience and a positive environmental impact. My diverse experience means I have the background to create designs that are simple for developers to implement while serving users effectively.
+                </p>
+            </div>
+
+            <div>    
+                <img src="/assets/sarah-castle-big-rock-blob.png" height="300" alt="Climbing at castle rock">
+                <p>
+                    In my spare time you'll find me hiking, mountain biking, climbing or skiing. When I'm not being active I enjoy photography, travelling with friends and taking care of my jungle of house plants.
+                </p>
+                <img src="/assets/chief-blob.png" height="300" alt="Climbing at castle rock">
+            </div>
         </section>
     </main>
 
     <footer class="footer">
         <p>&copy; Sarah Macintosh 2026. All rights reserved.</p>
     </footer>
+
+<script>
+    fetch("nav.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("nav-placeholder").innerHTML = data;
+
+            const links = document.querySelectorAll(".nav-menu a");
+            let currentPage = window.location.pathname.split("/").pop();
+
+            // Fix for homepage (empty = index.html)
+            if (currentPage === "") {
+                currentPage = "index.html";
+            }
+
+            links.forEach(link => {
+                if (link.getAttribute("href") === currentPage) {
+                    link.classList.add("active");
+                }
+            });
+        });
+</script>
+
 </body>
 </html>

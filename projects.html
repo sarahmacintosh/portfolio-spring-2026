@@ -7,17 +7,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">Sarah Macintosh Design</a>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html" class="active">Projects</a></li>
-                <li><a href="CV.pdf">Resume</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Navbar will be injected here -->
+    <div id="nav-placeholder"></div>
 
     <main class="container">
         <section class="content">
@@ -25,23 +16,28 @@
             <p>Here are some of the projects I've worked on:</p>
             
             <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Project 1</h3>
-                    <p>A description of your first project. Add details about what you built and the technologies used.</p>
-                    <a href="#" class="btn-small">View Project</a>
-                </div>
+
+                <a href="water-rangers.html" class="project-card-link">
+                    <div class="project-card">
+                      <h3>Water Rangers <br> Dev + design</h3>
+                      <p>Learning i don't want to be a web dev</p>
+                    </div>
+                </a>
                 
-                <div class="project-card">
-                    <h3>Design system + documentation</h3>
-                    <p>Building a comprehensive design system for a wealth management company.</p>
-                    <a href="IA.html" class="btn-small">View Project</a>
-                </div>
-                
-                <div class="project-card">
-                    <h3>Designing for mobile second</h3>
-                    <p>Adapting desktop designs to serve mobile users.</p>
-                    <a href="TRIYO.html" class="btn-small">View Project</a>
-                </div>
+                <a href="IA.html" class="project-card-link">
+                    <div class="project-card">
+                      <h3>Accenture <br> Design system documentation</h3>
+                      <p>Building a comprehensive design system for a wealth management company.</p>
+                    </div>
+                </a>
+
+                <a href="TRIYO.html" class="project-card-link">
+                    <div class="project-card">
+                      <h3>TRIYO <br> Designing for mobile second</h3>
+                      <p>Adapting desktop designs to serve mobile users.</p>
+                    </div>
+                </a>
+
             </div>
         </section>
     </main>
@@ -49,5 +45,29 @@
     <footer class="footer">
         <p>&copy; Sarah Macintosh 2026. All rights reserved.</p>
     </footer>
+
+<script>
+    fetch("nav.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("nav-placeholder").innerHTML = data;
+
+            const links = document.querySelectorAll(".nav-menu a");
+            let currentPage = window.location.pathname.split("/").pop();
+
+            // Fix for homepage (empty = index.html)
+            if (currentPage === "") {
+                currentPage = "index.html";
+            }
+
+            links.forEach(link => {
+                if (link.getAttribute("href") === currentPage) {
+                    link.classList.add("active");
+                }
+            });
+        });
+</script>
+
+
 </body>
 </html>

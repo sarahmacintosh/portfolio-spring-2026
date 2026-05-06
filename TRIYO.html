@@ -7,17 +7,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">Sarah Macintosh Design</a>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="CV.pdf">Resume</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Navbar will be injected here -->
+    <div id="nav-placeholder"></div>
 
     <main class="container">
         <section class="content">
@@ -187,5 +178,28 @@
     <footer class="footer">
         <p>&copy; Sarah Macintosh 2026. All rights reserved.</p>
     </footer>
+
+<script>
+    fetch("nav.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("nav-placeholder").innerHTML = data;
+
+            const links = document.querySelectorAll(".nav-menu a");
+            let currentPage = window.location.pathname.split("/").pop();
+
+            // Fix for homepage (empty = index.html)
+            if (currentPage === "") {
+                currentPage = "index.html";
+            }
+
+            links.forEach(link => {
+                if (link.getAttribute("href") === currentPage) {
+                    link.classList.add("active");
+                }
+            });
+        });
+</script>
+
 </body>
 </html>
