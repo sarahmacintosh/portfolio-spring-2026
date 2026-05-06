@@ -1,0 +1,52 @@
+[
+	{
+		"name": "Wealth Management App Design System",
+		"date": "Summer 2023",
+		"forWho": "Accenture",
+		"description": "Building a scalable design system mid-project for a wealth management app.",
+		"image": "triyo-logo.png",
+		"link": "/accenture"
+		
+	},
+	{
+		"name": "Designing for Mobile Second",
+		"date": "Winter 2022",
+		"forWho": "TRIYO",
+		"description": "Tackling the issue of how to approach mobile version design for established desktop software.",
+		"image": "triyo-logo.png",
+		"link": "/triyo"
+		
+	},
+	{
+		"name": "Increasing User Retention Rates by Improving UX",
+		"date": "Spring 2021",
+		"forWho": "Water Rangers",
+		"description": "Using data to design changes and improve user experience and retention on the Water Rangers data platform.",
+		"image": "WR-logo.png",
+		"link": "/water-rangers"
+	},
+	{
+		"name": "Reducing Redundancies for Data Uploads",
+		"date": "Fall 2020",
+		"forWho": "Innovation Canada",
+		"description": "Optimizing the process used to upload important licencing data to SPECTRAplus.",
+		"image": "ESDC-logo.jpeg",
+		"link": "/innovation-canada"
+	},
+	{
+		"name": "Webpage Optimization for Benefit Delivery",
+		"date": "Winter 2020",
+		"forWho": "Employment & Social Development Canada",
+		"description": "Optimizing benefits delivery web pages to improve accessibility and experience for users.",
+		"image": "ESDC-logo.jpeg",
+		"link": "/esdc"
+	},
+	{
+		"name": "Exploring the Relationship between ESL and Math learning",
+		"date": "Winter/Spring 2018",
+		"forWho": "Carleton University Math Lab",
+		"description": "Collecting and analyzing data for the LLAMA project on Dr. Jo-Anne Lefevre's research team.",
+		"image": "carleton-logo.jpeg",
+		"link": "/carleton"
+	}
+]
